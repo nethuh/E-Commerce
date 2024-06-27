@@ -2,6 +2,7 @@
   "name": "e-commerce-cw",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "backend": "nodemon Back-End/index.js",
     "frontend": "npm run dev --prefix Front-End",
