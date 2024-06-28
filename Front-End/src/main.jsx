@@ -7,6 +7,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
+import PrivateRoute from "./components/PrivateRoute";
+
 // Auth
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
@@ -14,6 +16,14 @@ import Register from "./pages/Auth/Register";
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<App />}>
+
+            <Route path="" element={<PrivateRoute />}>
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/shipping" element={<Shipping />} />
+                <Route path="/placeorder" element={<PlaceOrder />} />
+                <Route path="/order/:id" element={<Order />} />
+            </Route>
+            
         <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
         </Route>
