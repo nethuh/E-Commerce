@@ -13,17 +13,16 @@ import PrivateRoute from "./components/PrivateRoute";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 
+import Profile from "./pages/User/Profile";
+
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<App />}>
 
             <Route path="" element={<PrivateRoute />}>
                 <Route path="/profile" element={<Profile />} />
-                <Route path="/shipping" element={<Shipping />} />
-                <Route path="/placeorder" element={<PlaceOrder />} />
-                <Route path="/order/:id" element={<Order />} />
             </Route>
-            
+
         <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
         </Route>
