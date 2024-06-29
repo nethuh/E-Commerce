@@ -5,17 +5,23 @@ const router = express.Router();
 // controllers
 import {
   addProduct,
-  updateProductDetails
+  updateProductDetails,
+  removeProduct,
+  fetchProducts,
+  fetchProductById,
 } from "../controllers/productController.js";
 import { authenticate, authorizeAdmin } from "../middlewares/authMiddleware.js";
 
 
 router
   .route("/")
+    .get(fetchProducts)
   .post(authenticate, authorizeAdmin, formidable(), addProduct);
 
 router
     .route("/:id")
+    .get(fetchProductById)
     .put(authenticate, authorizeAdmin, formidable(), updateProductDetails)
+    .delete(authenticate, authorizeAdmin, removeProduct);
 
 export default router;
